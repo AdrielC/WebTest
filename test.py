@@ -2,6 +2,7 @@
 # HANDY LINK: http://isaacviel.name/make-web-driver-wait-element-become-visiable/
 # install chromedriver on ubuntu https://tecadmin.net/setup-selenium-chromedriver-on-ubuntu/ yes
 
+import datetime
 import pandas as pd
 import unicodecsv as csv
 import warnings
@@ -13,7 +14,7 @@ from selenium.webdriver.support import expected_conditions as EC
 ## For testing (obvi, lmao)
 #yes
 
-testURL = "https://www.overstock.com/?prop45=o.co"
+baseURL = "https://www.overstock.com/?prop45=o.co"
 
 class AutoTraderSession():
     def __init__(self):
@@ -27,6 +28,7 @@ class AutoTraderSession():
     def getData(self, url, button, dataTable):
         self.browser.get(url)
         self.browser.find_element_by_css_selector(button).click()
+        print(datetime.datetime.now())
         print("Clicked")
 
         cookies = self.browser.get_cookies()
@@ -55,10 +57,12 @@ class AutoTraderSession():
 
         except:
             #warnings.warning("Element never seen. Returning NA")
+            print("Element not seen, exiting action sequence")
             return("NA")
 
         self.browser.find_element_by_css_selector(".button").click()
-
+        print(datetime.datetime.now())
+        print("Clicked")
 
         return(self.browser.page_source)
 
@@ -70,10 +74,10 @@ def scrape_button(AutoURL):
     data = Session.getData(url = AutoURL, button = CSSSelectorButton, dataTable = CSSDataTable)
     Session.browser.quit()
 
-    print("\n\n\n\n\n WOW 😱 \n\n\n\n\n")
+    print("\n\n\n\n\n Done 👍🏼🤟 \n\n\n\n\n")
 
     return data
 
 ## For testing
 if __name__ == '__main__':
-     scrape_button(testURL)
+     scrape_button(baseURL)
