@@ -1,6 +1,6 @@
 # install chromedriver from https://chromedriver.storage.googleapis.com/index.html?path=2.38/
 # HANDY LINK: http://isaacviel.name/make-web-driver-wait-element-become-visiable/
-# install chromedriver on ubuntu https://tecadmin.net/setup-selenium-chromedriver-on-ubuntu/
+# install chromedriver on ubuntu https://tecadmin.net/setup-selenium-chromedriver-on-ubuntu/ yes
 
 import pandas as pd
 import unicodecsv as csv
@@ -11,6 +11,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 ## For testing (obvi, lmao)
+#yes
+
 testURL = "https://www.overstock.com/?prop45=o.co"
 
 class AutoTraderSession():
