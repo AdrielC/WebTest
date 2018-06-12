@@ -11,7 +11,7 @@ library(stringr)
 library(shinymaterial)
 library(flexdashboard)
 library(dplyr)
-#library(shinyWidgets)
+library(shinyWidgets)
 
 
 # Python Setup ------------------------------------------------------------
